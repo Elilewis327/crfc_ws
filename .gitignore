@@ -1,4 +1,4 @@
-build/*
-install/*
+build*
+install*
 log/*
 cc_internals/*
