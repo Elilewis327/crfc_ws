@@ -17,7 +17,7 @@ if [ "$a" = 'wsl' ] ; then
 # if doesn't work
 # ["$a" == "wsl"]
 echo "export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-export LIBGL_ALWAYS_INDIRECT=1
+export LIBGL_ALWAYS_INDIRECT=0
 sudo /etc/init.d/dbus start &> /dev/null" >> ".$(basename $SHELL)rc"
 fi
 
@@ -40,8 +40,10 @@ rosdep update
 sudo apt update && sudo apt install curl gnupg2 lsb-release -y
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 
+sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
+
 sudo apt update
-sudo apt install -y ros-foxy-desktop
+sudo apt install -y ros-foxy-desktop ros-foxy-rqt
 
 sudo apt install -y python3-pip
 sudo apt install -y python3-colcon-common-extensions
