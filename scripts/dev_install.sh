@@ -43,7 +43,7 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo ap
 sudo sh -c 'echo "deb [arch=$(dpkg --print-architecture)] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" > /etc/apt/sources.list.d/ros2-latest.list'
 
 sudo apt update
-sudo apt install -y ros-foxy-desktop ros-foxy-rqt
+sudo apt install -y ros-foxy-desktop ros-foxy-rqt ros-foxy-diagnostic-updater
 
 sudo apt install -y python3-pip
 sudo apt install -y python3-colcon-common-extensions
@@ -54,4 +54,4 @@ sudo apt-get install qemu-user-static
 pip3 install ros_cross_compile
 
 # Save ~400MB
-sudo apt remove --purge -y thunderbird libreoffice-*
+#sudo apt remove --purge -y thunderbird libreoffice-*

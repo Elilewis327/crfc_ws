@@ -1,4 +1,6 @@
 build*
 install*
 log/*
-cc_internals/*
+cc_internals*
+
+aarch64/*

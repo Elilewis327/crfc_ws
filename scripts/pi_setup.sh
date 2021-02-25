@@ -1,3 +1,5 @@
+# ./scripts/pi_setup -i 10 (IP #)
+
 while getopts i: flag
 do
         case "${flag}" in
@@ -6,7 +8,7 @@ do
 done
 
 # Update package list
-sudo apt-get update && sudo apt-get upgrade
+sudo apt-get update && sudo apt-get upgrade -y
 
 # Install Docker
 sudo apt-get install \
@@ -43,9 +45,9 @@ echo \
             access-points:
                 'calvin-crfc':
                     password: 'calvin-crfc'
-            dhcp4: true
+            dhcp4: false
             optional: true
-            addresses: [10.18.76.$id/8]
+            addresses: [10.18.76.$id/24]
             gateway4: 10.18.76.1
             nameservers:
                 addresses: [8.8.8.8,8.8.4.4,10.18.76.1]" \

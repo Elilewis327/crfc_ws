@@ -1,0 +1,34 @@
+#File aarch64_toolchain.cmake for ROS2 and system packages to cross compile.
+SET(CMAKE_SYSTEM_NAME Linux)
+
+SET(CMAKE_C_COMPILER aarch64-linux-gnu-gcc)
+SET(CMAKE_CXX_COMPILER aarch64-linux-gnu-g++)
+
+# Below call is necessary to avoid non-RT problem.
+SET(CMAKE_LIBRARY_ARCHITECTURE aarch64-linux-gnu)
+
+SET(AARCH64_ROOT_PATH ~/aarch64)
+SET(AARCH64_FOXY_PATH ${AARCH64_ROOT_PATH}/opt/ros/foxy)
+
+#set(CMAKE_PREFIX_PATH ${AARCH64_FOXY_PATH})
+
+SET(CMAKE_FIND_ROOT_PATH ${AARCH64_FOXY_PATH} ${AARCH64_ROOT_PATH}/usr/)
+
+#If you have installed cross compiler to somewhere else, please specify that path.
+SET(COMPILER_ROOT /usr/aarch64-linux-gnu) 
+
+#Have to set this one to BOTH, to allow CMake to find rospack
+#This set of variables controls whether the CMAKE_FIND_ROOT_PATH and CMAKE_SYSROOT are used for find_xxx() operations.
+SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+SET(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+SET(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+SET(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)
+
+SET(CMAKE_PREFIX_PATH ${AARCH64_FOXY_PATH} ${AARCH64_ROOT_PATH}/usr)
+
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} --sysroot=${AARCH64_ROOT_PATH}" CACHE INTERNAL "" FORCE)
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --sysroot=${AARCH64_ROOT_PATH}" CACHE INTERNAL "" FORCE)
+SET(CMAKE_C_LINK_FLAGS "${CMAKE_C_LINK_FLAGS} --sysroot=${AARCH64_ROOT_PATH}" CACHE INTERNAL "" FORCE)
+SET(CMAKE_CXX_LINK_FLAGS "${CMAKE_CXX_LINK_FLAGS} --sysroot=${AARCH64_ROOT_PATH}" CACHE INTERNAL "" FORCE)
+
+SET(LD_LIBRARY_PATH ${AARCH64_FOXY_PATH}/lib)
