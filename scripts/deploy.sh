@@ -2,5 +2,13 @@
 
 ./scripts/cross_build.sh
 
-# Alternate method
-# docker save calvinrobotics/crfc2021:aarch64 | gzip > calvin_crfc.tar.gz
+# Compress folder
+tar -czvf install_aarch64.tar.gz ./install_aarch64
+
+# Send folder to targets: How should we specify targets?
+
+# add to docker container
+
+# uncompress
+
+# restart 

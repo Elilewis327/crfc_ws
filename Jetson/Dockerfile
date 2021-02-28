@@ -98,9 +98,19 @@ RUN apt-get update && \
     rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y --skip-keys "" && \
     rm -rf /var/lib/apt/lists/*
 
+# Update cmake version for backport
+RUN sudo apt remove --purge cmake && \
+    hash -r && \
+    sudo apt install build-essential libssl-dev && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && \
+    tar -zxvf cmake-3.16.5.tar.gz && \
+    cd cmake-3.16.5 && \
+    ./bootstrap && \
+    make && \
+    sudo make install 
+
 # build it!
 RUN cd ${ROS_ROOT} && colcon build --symlink-install
-
 
 # Set up auto-source of workspace for ros user
 ARG WORKSPACE
