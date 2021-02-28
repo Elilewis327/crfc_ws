@@ -1,4 +1,4 @@
-FROM athackst/ros2:foxy-base
+FROM  ros:foxy-ros-base-focal 
 
 # ** [Optional] Uncomment this section to install additional packages. **
 #
