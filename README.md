@@ -1,10 +1,14 @@
-# VSCode ROS2 Workspace Template
+# Calvin CRFC 2021
 
 This template will get you set up using ROS2 with VSCode as your IDE.
 
 See [how I develop with vscode and ros2](https://www.allisonthackston.com/articles/vscode_docker_ros2.html) for a more in-depth look on how to use this workspace.
 
-## Features
+## Linux vs. WSL Updates
+1. Linux: Go to .devcontainer/devcontainer.json, uncomment 3 Linux labeled lines, and comment out WSL line
+2. WSL: enter terminal command: ./scripts/wsl_display_setup.sh (check using: echo $DISPLAY)
+3. Launch Dev Container
+4. Test graphical forwarding by entering terminal command: rqt (rqt window should pop up, otherwise an error if setup wrong)
 
 ### Style
 
@@ -44,26 +48,6 @@ You should already have Docker and VSCode with the remote containers plugin inst
 * [vscode](https://code.visualstudio.com/)
 * [vscode remote containers plugin](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 
-### Get the template
-
-Click on "use this template"
-
-![template_use](https://user-images.githubusercontent.com/6098197/91331899-43f23b80-e780-11ea-92c8-b4665ce126f1.png)
-
-### Create your repository
-
-On the next dialog, name the repository you would like to start and decide if you want all of the branches, or just the latest LTS: Foxy.
-
-![template_new](https://user-images.githubusercontent.com/6098197/91332035-713ee980-e780-11ea-81d3-13b170f568b0.png)
-
-Github will then create a new repository with the contents of this one in your account.  It grabs the latest changes as "initial commit".
-
-### Clone your repo
-
-Now you can clone your repo as normal
-
-![template_download](https://user-images.githubusercontent.com/6098197/91332342-e4e0f680-e780-11ea-9525-49b0afa0e4bb.png)
-
 ### Open it in vscode
 
 Now that you've cloned your repo onto your computer, you can open it in VSCode (File->Open Folder). 
@@ -82,10 +66,3 @@ VSCode will build the dockerfile inside of `.devcontainer` for you.  If you open
 
 ![template_container](https://user-images.githubusercontent.com/6098197/91332895-adbf1500-e781-11ea-8afc-7a22a5340d4a.png)
 
-
-### Update the template with your code
-
-1. Specify the repositories you want to include in your workspace in `src/ros2.repos` or delete `src/ros2.repos` and develop directly within the workspace.
-   1. If you are using a `ros2.repos` file, import the contents `Terminal->Run Task..->import from workspace file`
-2. Install dependencies `Terminal->Run Task..->install dependencies`
-3. Develop!

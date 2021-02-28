@@ -52,5 +52,6 @@
         "**/install": true,
         "**/log": true
     },
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "ros.distro": "foxy"
 }
