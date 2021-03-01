@@ -28,7 +28,9 @@ RUN apt-get update && \
     ./bootstrap && \
     make && \
     make install && \
-    cd ..
+    cd .. && \
+    rm -rf cmake-3.16.5 \
+    && rm -rf /var/lib/apt/lists/*
 
 # add the ROS deb repo to the apt sources list
 RUN apt-get update && \
