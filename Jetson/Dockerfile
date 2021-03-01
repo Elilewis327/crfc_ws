@@ -65,6 +65,18 @@ RUN python3 -m pip install -U \
 		pytest-rerunfailures \
 		pytest
 
+# Update cmake version for backport
+RUN sudo apt remove --purge cmake -y && \
+    hash -r && \
+    sudo apt install build-essential libssl-dev -y && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && \
+    tar -zxvf cmake-3.16.5.tar.gz && \
+    cd cmake-3.16.5 && \
+    ./bootstrap && \
+    make && \
+    sudo make install && \
+    cd ..
+
 # compile yaml-cpp-0.6, which some ROS packages may use (but is not in the 18.04 apt repo)
 RUN git clone --branch yaml-cpp-0.6.0 https://github.com/jbeder/yaml-cpp yaml-cpp-0.6 && \
     cd yaml-cpp-0.6 && \
@@ -97,17 +109,6 @@ RUN apt-get update && \
     # rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y --skip-keys "console_bridge fastcdr fastrtps rti-connext-dds-5.3.1 urdfdom_headers qt_gui" && \
     rosdep install --from-paths src --ignore-src --rosdistro ${ROS_DISTRO} -y --skip-keys "" && \
     rm -rf /var/lib/apt/lists/*
-
-# Update cmake version for backport
-RUN sudo apt remove --purge cmake && \
-    hash -r && \
-    sudo apt install build-essential libssl-dev && \
-    wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && \
-    tar -zxvf cmake-3.16.5.tar.gz && \
-    cd cmake-3.16.5 && \
-    ./bootstrap && \
-    make && \
-    sudo make install 
 
 # build it!
 RUN cd ${ROS_ROOT} && colcon build --symlink-install
