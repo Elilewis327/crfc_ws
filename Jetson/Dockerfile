@@ -17,6 +17,18 @@ WORKDIR /workspace
 RUN locale-gen en_US en_US.UTF-8 && update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 ENV LANG=en_US.UTF-8
 
+# Update cmake version for backport
+RUN sudo apt remove --purge cmake -y && \
+    hash -r && \
+    sudo apt install build-essential libssl-dev -y && \
+    wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && \
+    tar -zxvf cmake-3.16.5.tar.gz && \
+    cd cmake-3.16.5 && \
+    ./bootstrap && \
+    make && \
+    sudo make install && \
+    cd ..
+
 # add the ROS deb repo to the apt sources list
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -64,18 +76,6 @@ RUN python3 -m pip install -U \
 		pytest-repeat \
 		pytest-rerunfailures \
 		pytest
-
-# Update cmake version for backport
-RUN sudo apt remove --purge cmake -y && \
-    hash -r && \
-    sudo apt install build-essential libssl-dev -y && \
-    wget https://github.com/Kitware/CMake/releases/download/v3.16.5/cmake-3.16.5.tar.gz && \
-    tar -zxvf cmake-3.16.5.tar.gz && \
-    cd cmake-3.16.5 && \
-    ./bootstrap && \
-    make && \
-    sudo make install && \
-    cd ..
 
 # compile yaml-cpp-0.6, which some ROS packages may use (but is not in the 18.04 apt repo)
 RUN git clone --branch yaml-cpp-0.6.0 https://github.com/jbeder/yaml-cpp yaml-cpp-0.6 && \
