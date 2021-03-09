@@ -31,6 +31,7 @@ sudo usermod -aG docker ubuntu
 
 mkdir ~/crfc-vol/
 
+cd ~/crfc_ws
 tar -xf install_aarch64.tar.gz -C ~/crfc-vol
 
 docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4

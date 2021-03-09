@@ -1,6 +1,6 @@
 cd ~/
 
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt install git-lfs -y
 
 # Install realsense
 sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE 
@@ -22,8 +22,9 @@ cd ..
 sudo usermod -aG docker $USER
 sudo chown -R $USER ~/.docker
 
+cd ~/crfc_ws
 mkdir ~/crfc-vol/
-
+git lfs pull
 tar -xf install_aarch64.tar.gz -C ~/crfc-vol
 
 docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:jetson
