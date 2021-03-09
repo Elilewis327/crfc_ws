@@ -20,6 +20,7 @@ cd ..
 
 # start docker container (pull if necessary)
 sudo usermod -aG docker $USER
+sudo chown -R $USER ~/.docker
 
 mkdir ~/crfc-vol/
 

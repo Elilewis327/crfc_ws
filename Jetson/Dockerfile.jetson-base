@@ -135,9 +135,5 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 ENV DEBIAN_FRONTEND=dialog
 
-# Set up auto-source of workspace for ros user
-ARG WORKSPACE
-RUN echo "if [ -f /home/ros/install_aarch64/setup.bash ]; then source /home/ros/install_aarch64/install/setup.bash; fi" >> /home/ros/.bashrc
-
 CMD ["bash"]
 WORKDIR /
