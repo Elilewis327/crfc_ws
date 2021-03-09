@@ -1,0 +1,4 @@
+[
+        {"board":"pi", "ip":10, "name":"ubuntu", "password":"calvin-crfc", "position":"lineman"},
+        {"board":"jetson", "ip":11, "name":"crfc-11", "password":"crfc", "position":"rb"}
+]

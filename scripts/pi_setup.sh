@@ -29,6 +29,18 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io -y
 sudo usermod -aG docker ubuntu
 
+mkdir ~/crfc-vol/
+
+tar -xf install_aarch64.tar.gz -C ~/crfc-vol
+
+docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
+# Competition
+# --restart always -d
+
+# Testing
+# --rm -it /bin/bash
+
+
 echo \
 "network:
     ethernets:
@@ -52,7 +64,6 @@ echo \
             nameservers:
                 addresses: [8.8.8.8,8.8.4.4,10.18.76.1]" \
 | sudo tee /etc/netplan/50-cloud-init.yaml
-
 
 sudo netplan generate
 sudo netplan apply

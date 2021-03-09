@@ -11,5 +11,5 @@ sudo rm -rf build install
 
 if [ "$a" = 'all' ] ; then
 
-sudo rm -rf cc_internals build_aarch64 build_x86_64 install_aarch64 install_x86_64
+sudo rm -rf build_aarch64 install_aarch64
 fi

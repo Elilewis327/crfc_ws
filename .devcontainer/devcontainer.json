@@ -1,5 +1,6 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
 {
+	"name": "dev",
 	"dockerFile": "Dockerfile",
 	"build": {
 		"args": {
@@ -7,9 +8,11 @@
 		}
 	},
 	"remoteUser": "ros",
-	// Linux (uncomment lines)
 	"runArgs": [
-		//"--network=host",
+		"--network=host",
+		"-P",
+		"-h=dev",
+		"--name=dev",
 		"--cap-add=SYS_PTRACE",
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
