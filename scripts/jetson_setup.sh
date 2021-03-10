@@ -38,7 +38,7 @@ sudo docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/ho
 # Clean up Jetson
 sudo rm -rf /home/nvidia/cudnn /home/nvidia/OpenCV /home/nvidia/TensorRT /home/nvidia/libvisionworkd*
 # Save ~400MB
-sudo apt remove --purge -y thunderbird libreoffice-* unattended-upgrade
+sudo apt remove --purge -y thunderbird libreoffice-*
 
 # Setup Wifi and ethernet
 #sudo echo "up route add -net 10.18.76.$id netmask 255.255.255.0 gw 10.18.76.1 eth0" >> /etc/network/interfaces
