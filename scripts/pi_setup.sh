@@ -11,7 +11,7 @@ done
 sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git-lfs -y
 
 # Install Docker
-sudo apt-get install \
+sudo apt-get install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -35,7 +35,7 @@ cd ~/crfc_ws
 git lfs pull
 tar -xf install_aarch64.tar.gz -C ~/crfc-vol
 
-docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
+sudo docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
 # Competition
 # --restart always -d
 

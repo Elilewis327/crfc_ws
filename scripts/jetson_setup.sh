@@ -27,7 +27,7 @@ mkdir ~/crfc-vol/
 git lfs pull
 tar -xf install_aarch64.tar.gz -C ~/crfc-vol
 
-docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:jetson
+sudo docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:jetson
 # Competition
 # --restart always -d
 
