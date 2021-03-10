@@ -8,7 +8,7 @@ do
 done
 
 # Update package list
-sudo apt-get update && sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git-lfs -y
 
 # Install Docker
 sudo apt-get install \
@@ -32,6 +32,7 @@ sudo usermod -aG docker ubuntu
 mkdir ~/crfc-vol/
 
 cd ~/crfc_ws
+git lfs pull
 tar -xf install_aarch64.tar.gz -C ~/crfc-vol
 
 docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
@@ -40,6 +41,7 @@ docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ro
 
 # Testing
 # --rm -it /bin/bash
+# docker run --rm -it --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
 
 
 echo \

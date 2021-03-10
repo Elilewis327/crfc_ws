@@ -33,6 +33,7 @@ docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/home/ro
 
 # Testing
 # --rm -it /bin/bash
+# docker run --rm -it --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:jetson
 
 # Clean up Jetson
 sudo rm -rf /home/nvidia/cudnn /home/nvidia/OpenCV /home/nvidia/TensorRT /home/nvidia/libvisionworkd*

@@ -1,4 +1,5 @@
 # Source Environment
+# For Jetsons and Pis: aarch64
 # source ~/aarch64/opt/ros/setup.$(basename $SHELL)
 if [ ! -d ~/aarch64 ]; then mkdir ~/aarch64 && tar -xf /workspaces/crfc_ws/cross-aarch64.tar.gz -C ~/aarch64 --strip-components=3
 fi
