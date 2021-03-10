@@ -1,4 +1,5 @@
 // See https://aka.ms/vscode-remote/devcontainer.json for format details.
+// Example file: needs to be copied into .devcontainer
 {
 	"name": "dev",
 	"dockerFile": "Dockerfile",
