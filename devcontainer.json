@@ -17,7 +17,9 @@
 		"--cap-add=SYS_PTRACE",
 		"--security-opt=seccomp:unconfined",
 		"--security-opt=apparmor:unconfined",
-		//"--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+		//"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+		//USB joystick support (native linux only)
+		//"--device=/dev/input/js0",
 	],
 	// WSL:
 	"containerEnv": { "DISPLAY": "host.docker.internal:0.0", "LIBGL_ALWAYS_INDIRECT": "0" }, 

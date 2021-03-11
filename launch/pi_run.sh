@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Source local
 source /home/ros/crfc-vol/install_aarch64/setup.bash
 

@@ -14,6 +14,7 @@ RUN apt-get update \
     jq \
     openssh-server \
     sshpass\
+    git-lfs \
     # Clean up
     && apt-get autoremove -y \
     && apt-get clean -y \

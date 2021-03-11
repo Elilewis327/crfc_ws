@@ -31,5 +31,5 @@ RUN groupadd --gid $USER_GID $USERNAME \
 
 ENV DEBIAN_FRONTEND=dialog
 
-CMD ["/home/ros/crfc-vol/launch/deploy_run.sh"]
+CMD ["/home/ros/crfc-vol/launch/pi_run.sh"]
 WORKDIR /

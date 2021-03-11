@@ -1,4 +1,4 @@
 FROM calvinrobotics/crfc2021:jetson-base
 
-CMD ["/home/ros/crfc-vol/launch/deploy_run.sh"]
+CMD ["/home/ros/crfc-vol/launch/jetson_run.sh"]
 WORKDIR /
