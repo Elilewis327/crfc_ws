@@ -45,7 +45,7 @@ RUN apt-get update && \
         software-properties-common && \
     add-apt-repository ppa:ubuntu-toolchain-r/test && \
     apt-get update && \
-    apt-get install --only-upgrade libstdc++6 && \
+    apt-get install --only-upgrade libstdc++6 -y && \
     rm -rf /var/lib/apt/lists/*
 
 RUN wget --no-check-certificate https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc && apt-key add ros.asc
