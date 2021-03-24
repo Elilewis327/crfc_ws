@@ -7,9 +7,9 @@ do
         esac
 done
 
-sudo rm -rf build install
+rm -rf build install
 
 if [ "$a" = 'all' ] ; then
 
-sudo rm -rf build_aarch64 install_aarch64
+rm -rf build_aarch64 install_aarch64
 fi

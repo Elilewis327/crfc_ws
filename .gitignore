@@ -5,3 +5,7 @@ install_aarch64/*
 log/*
 cc_internals*
 .devcontainer/**/*.json
+src/**/build*
+src/**/install*
+src/**/include*
+src/**/log*
