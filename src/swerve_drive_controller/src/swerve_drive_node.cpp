@@ -13,6 +13,8 @@ class SwerveDriveController : public rclcpp::Node {
     SwerveDriveController() : Node("tank_drive_controller") {
       sub_ = this->create_subscription<sensor_msgs::msg::Joy>(
         "joy", 10, std::bind(&SwerveDriveController::swerve_callback, this, _1));
+
+      pub_ = this->create_publisher<drive_controller_msgs::msg::Swerve>("swerve_output", 10);
     }
 
   private:
