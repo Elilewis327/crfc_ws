@@ -68,8 +68,8 @@ class SwerveDriveController : public rclcpp::Node {
     float kWidthComponent = 1.0;
     bool mFieldOriented = false;
 
-    std::vector<float> ws{4};
-    std::vector<float> wa{4};
+    std::vector<float> ws{0.0,0.0,0.0,0.0};
+    std::vector<float> wa{0.0,0.0,0.0,0.0};
 };
 
 
