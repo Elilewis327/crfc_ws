@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(tank_drive_controller)
+project(swerve_drive_controller)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
@@ -24,15 +24,13 @@ find_package(rclcpp REQUIRED)
 find_package(drive_controller_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
- 
-
-add_executable(tank_drive_node src/tank_drive_node.cpp)
-ament_target_dependencies(tank_drive_node rclcpp sensor_msgs drive_controller_msgs)
-target_include_directories(tank_drive_node PUBLIC
+add_executable(swerve_drive_node src/swerve_drive_node.cpp)
+ament_target_dependencies(swerve_drive_node rclcpp sensor_msgs drive_controller_msgs)
+target_include_directories(swerve_drive_node PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-install(TARGETS tank_drive_node
+install(TARGETS swerve_drive_node
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

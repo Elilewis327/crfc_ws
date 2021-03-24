@@ -4,7 +4,7 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/joy.hpp"
-#include "tank_drive_controller/msg/tank.hpp"
+#include "drive_controller_msgs/msg/tank.hpp"
 using std::placeholders::_1;
 
 // Transforms joystick to Tank Drive Left/Right output 
@@ -67,7 +67,7 @@ class TankDriveController : public rclcpp::Node {
       }
       
 
-      rightOut = leftOut=linearPower;
+      rightOut = leftOut = linearPower;
       leftOut += angularPower;
       rightOut -= angularPower;
 
@@ -97,14 +97,14 @@ class TankDriveController : public rclcpp::Node {
 
     void tank_callback(const sensor_msgs::msg::Joy::SharedPtr msg) {
       std::array<float, 2> tmp = calculate(msg->axes[1], msg->axes[0]);
-      auto out = tank_drive_controller::msg::Tank();
+      auto out = drive_controller_msgs::msg::Tank();
       out.left = tmp[0];
       out.right = tmp[1];
 
       pub_->publish(out);
     }
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
-    rclcpp::Publisher<tank_drive_controller::msg::Tank>::SharedPtr pub_;
+    rclcpp::Publisher<drive_controller_msgs::msg::Tank>::SharedPtr pub_;
 
     const float kDeadband = 0.05;
     float kQuickTurnAngle = M_PI/5;
