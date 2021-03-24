@@ -86,6 +86,13 @@ class TankDriveController : public rclcpp::Node {
         rightOut = -1.0;
       }
 
+      // Flip output of quickturn and forward
+      if (quickturn || forward > 0.0 ) {
+        double tmp = leftOut;
+        leftOut = rightOut;
+        rightOut = tmp;
+      }
+
       std::array<float, 2> output;
       output[0] = leftOut;
       output[1] = rightOut;
