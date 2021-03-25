@@ -115,7 +115,7 @@ class TankDriveController : public rclcpp::Node {
     rclcpp::Publisher<drive_controller_msgs::msg::Tank>::SharedPtr pub_;
 
     const float kDeadband = 0.05;
-    float kQuickTurnAngle = M_PI/5;
+    float kQuickTurnAngle = M_PI/6;
     float mOldStrafe = 0.0;
     float mQuickStopAccumulator = 0.0;
     float mNegInertiaAccumulator = 0.0;
