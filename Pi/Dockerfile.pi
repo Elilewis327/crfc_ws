@@ -12,6 +12,18 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
+# Setup communication with MCU
+RUN cd /home/ros && \
+    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git && \
+    cd Micro-XRCE-DDS-Agent && \
+    git checkout foxy && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make && \
+    make install && \
+    ldconfig /usr/local/lib/
+
 ARG USERNAME=ros
 ARG USER_UID=1000
 ARG USER_GID=$USER_UID

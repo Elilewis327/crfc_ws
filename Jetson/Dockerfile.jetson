@@ -1,4 +1,16 @@
 FROM calvinrobotics/crfc2021:jetson-base
 
+# Setup communication with MCU
+RUN cd /home/ros && \
+    git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git && \
+    cd Micro-XRCE-DDS-Agent && \
+    git checkout foxy && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make && \
+    make install && \
+    ldconfig /usr/local/lib/
+
 CMD ["/home/ros/crfc-vol/launch/jetson_run.sh"]
 WORKDIR /
