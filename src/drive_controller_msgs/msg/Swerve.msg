@@ -1,2 +1,4 @@
-float32[] ws
-float32[] wa
+std_msgs/Header header
+
+float32[4] ws
+float32[4] wa

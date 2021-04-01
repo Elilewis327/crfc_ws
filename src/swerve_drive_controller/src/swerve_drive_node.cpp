@@ -1,5 +1,5 @@
 #include <cstdio>
-#include <vector>
+#include <array>
 #include <math.h>
 
 #include "rclcpp/rclcpp.hpp"
@@ -70,8 +70,8 @@ class SwerveDriveController : public rclcpp::Node {
     float kWidthComponent = 1.0;
     bool mFieldOriented = false;
 
-    std::vector<float> ws{0.0,0.0,0.0,0.0};
-    std::vector<float> wa{0.0,0.0,0.0,0.0};
+    std::array<float, 4> ws{0.0, 0.0, 0.0, 0.0};
+    std::array<float, 4> wa{0.0, 0.0, 0.0, 0.0};
 };
 
 

@@ -1,4 +1,4 @@
-# ./scripts/pi_setup -i 10 (IP #)
+# ./scripts/pi_setup.sh -i 10 (IP #)
 
 while getopts i: flag
 do
@@ -41,7 +41,7 @@ sudo docker run --restart always -d --network=host --name=crfc -v ~/crfc-vol:/ho
 
 # Testing
 # --rm -it /bin/bash
-# docker run --rm -it --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4
+# docker run --rm -it --network=host --name=crfc -v ~/crfc-vol:/home/ros/crfc-vol/:ro calvinrobotics/crfc2021:raspi4 /bin/bash
 
 
 echo \
