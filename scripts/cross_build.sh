@@ -1,7 +1,10 @@
 # Source Environment
 # For Jetsons and Pis: aarch64
 # source ~/aarch64/opt/ros/setup.$(basename $SHELL)
-if [ ! -d ~/aarch64 ]; then mkdir ~/aarch64 && tar -xf /workspaces/crfc_ws/cross-aarch64.tar.gz -C ~/aarch64 --strip-components=3
+
+# make sure to pull tar files from Large File Storage
+# if it can't source the cross build setup.bash, reload the container
+if [ ! -d ~/aarch64 ]; then git lfs pull && mkdir ~/aarch64 && tar -xf /workspaces/crfc_ws/cross-aarch64.tar.gz -C ~/aarch64 --strip-components=3
 fi
 # Alternate using official cross-compile
 #sudo ros_cross_compile $PWD -a aarch64 -d foxy -o ubuntu --runtime-tag calvinrobotics/crfc2021:aarch64
