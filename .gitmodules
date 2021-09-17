@@ -1,0 +1,4 @@
+[submodule "src/rosidl_typesupport_microxrcedds"]
+	path = src/rosidl_typesupport_microxrcedds
+	url = https://github.com/micro-ROS/rosidl_typesupport_microxrcedds.git
+	branch = foxy
