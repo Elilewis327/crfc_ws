@@ -2,3 +2,7 @@
 	path = src/rosidl_typesupport_microxrcedds
 	url = https://github.com/micro-ROS/rosidl_typesupport_microxrcedds.git
 	branch = foxy
+[submodule "src/micro_ros_msgs"]
+	path = src/micro_ros_msgs
+	url = https://github.com/micro-ROS/micro_ros_msgs.git
+	branch = foxy
