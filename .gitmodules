@@ -6,7 +6,3 @@
 	path = src/micro_ros_agent
 	url = https://github.com/micro-ROS/micro-ROS-Agent.git
 	branch = foxy
-[submodule "modules/micro_ros_agent"]
-	path = modules/micro_ros_agent
-	url = https://github.com/micro-ROS/rosidl_typesupport_microxrcedds.git
-	branch = foxy
