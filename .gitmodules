@@ -6,3 +6,7 @@
 	path = src/micro_ros_msgs
 	url = https://github.com/micro-ROS/micro_ros_msgs.git
 	branch = foxy
+[submodule "src/micro_ros_agent"]
+	path = src/micro_ros_agent
+	url = https://github.com/micro-ROS/micro-ROS-Agent.git
+	branch = foxy
