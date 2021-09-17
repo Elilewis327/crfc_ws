@@ -27,6 +27,7 @@ find_package(std_msgs REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/Tank.msg"
   "msg/Swerve.msg"
+  DEPENDENCIES std_msgs
  )
 
 if(BUILD_TESTING)

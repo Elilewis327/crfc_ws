@@ -14,7 +14,7 @@ class TankDriveController : public rclcpp::Node {
     TankDriveController() : Node("tank_drive_controller") {
       sub_ = this->create_subscription<sensor_msgs::msg::Joy>(
         "joy", 10, std::bind(&TankDriveController::tank_callback, this, _1));
-      pub_ = this->create_publisher<drive_controller_msgs::msg::Tank>("tank_output", 10);
+      pub_ = this->create_publisher<drive_controller_msgs::msg::Tank>("tank_pub", 10);
     }
 
   private:
@@ -108,6 +108,7 @@ class TankDriveController : public rclcpp::Node {
       auto out = drive_controller_msgs::msg::Tank();
       out.left = tmp[0];
       out.right = tmp[1];
+      // out.header.stamp.
 
       pub_->publish(out);
     }

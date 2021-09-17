@@ -40,6 +40,7 @@ find_package(rosidl_typesupport_cpp REQUIRED)
 find_package(ament_cmake_gtest REQUIRED)
 
 find_package(micro_ros_msgs REQUIRED)
+find_package(drive_controller_msgs REQUIRED)
 
 add_executable(${PROJECT_NAME}
   src/main.cpp
@@ -64,6 +65,7 @@ ament_target_dependencies(${PROJECT_NAME}
   rmw
   rmw_fastrtps_shared_cpp
   micro_ros_msgs
+  drive_controller_msgs
   )
 
 target_link_libraries(${PROJECT_NAME}
