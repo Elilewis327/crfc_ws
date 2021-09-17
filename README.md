@@ -1,5 +1,14 @@
 # Calvin CRFC 2021
 
+# Commands
+1. Publish 1 time message to test micro_ros subscriber
+
+```ros2 topic pub --once /micro_ros_arduino_subscriber drive_controller_msgs/msg/Tank '{header: {stamp: {sec: 1, nanosec: 500}, frame_id: base_link}, left: 1.0, right: -1.0}'```
+
+2. Start micro ros agent
+
+```ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyACM0```
+
 This template will get you set up using ROS2 with VSCode as your IDE.
 
 See [how I develop with vscode and ros2](https://www.allisonthackston.com/articles/vscode_docker_ros2.html) for a more in-depth look on how to use this workspace.
