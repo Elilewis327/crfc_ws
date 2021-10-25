@@ -54,5 +54,8 @@
         "**/log": true
     },
     "cmake.configureOnOpen": false,
-    "ros.distro": "foxy"
+    "ros.distro": "foxy",
+    "python.analysis.extraPaths": [
+        "/opt/ros/foxy/lib/python3.8/site-packages/"
+    ]
 }

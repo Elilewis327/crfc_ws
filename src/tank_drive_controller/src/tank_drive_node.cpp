@@ -106,6 +106,9 @@ class TankDriveController : public rclcpp::Node {
     void tank_callback(const sensor_msgs::msg::Joy::SharedPtr msg) {
       std::array<float, 2> tmp = calculate(msg->axes[1], msg->axes[0]);
       auto out = drive_controller_msgs::msg::Tank();
+      out.header.frame_id = "Tank Output";
+      out.header.stamp.sec = 1;
+      out.header.stamp.nanosec = 500;
       out.left = tmp[0];
       out.right = tmp[1];
       // out.header.stamp.

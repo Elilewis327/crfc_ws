@@ -21,14 +21,14 @@ class SwerveDriveController : public rclcpp::Node {
     void calculate(float forward, float strafe, float azimuth) {
       // TODO: add fieldOriented: assume gyro is in radians
       if (mFieldOriented) {
-        float angle = 0.0; //getAngle();
+        double angle = 0.0; //getAngle();
         angle = std::fmod(angle, 2.0 * M_PI);
-        const float tmp = forward * std::cos(angle) + strafe * std::sin(angle);
+        const double tmp = forward * std::cos(angle) + strafe * std::sin(angle);
         strafe = strafe * std::cos(angle) - forward * std::sin(angle);
         forward = tmp;
 
       }
-      const float a = strafe - azimuth * kLengthComponent;
+      const double a = strafe - azimuth * kLengthComponent;
       const double b = strafe + azimuth * kLengthComponent;
       const double c = forward - azimuth * kWidthComponent;
       const double d = forward + azimuth * kWidthComponent;
@@ -66,12 +66,12 @@ class SwerveDriveController : public rclcpp::Node {
     rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr sub_;
     rclcpp::Publisher<drive_controller_msgs::msg::Swerve>::SharedPtr pub_;
 
-    float kLengthComponent = 1.0;
-    float kWidthComponent = 1.0;
+    double kLengthComponent = 1.0;
+    double kWidthComponent = 1.0;
     bool mFieldOriented = false;
 
-    std::array<float, 4> ws{0.0, 0.0, 0.0, 0.0};
-    std::array<float, 4> wa{0.0, 0.0, 0.0, 0.0};
+    std::array<double, 4> ws{0.0, 0.0, 0.0, 0.0};
+    std::array<double, 4> wa{0.0, 0.0, 0.0, 0.0};
 };
 
 
